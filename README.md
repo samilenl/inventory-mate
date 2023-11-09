@@ -21,14 +21,20 @@ Here are some features of the website:
 ### Built With
 
 NodeJS
+
 ExpressJS
+
 MongoDB
+
 Mongoose
+
 EJS
+
 Vanila CSS
+
 Third Party Libraries:
-  [passport-js](https://github.com/jaredhanson/passport-github)
-  [passport-local](https://github.com/jaredhanson/passport-local)
+   - [passport-js](https://github.com/jaredhanson/passport-github)
+   - [passport-local](https://github.com/jaredhanson/passport-local)
 
 
 
@@ -38,7 +44,7 @@ Third Party Libraries:
 To set up and work on this project on your own, please follow these steps:
 Clone the project by running the following command in your terminal:
 
-   `git clone `
+   `git clone https://github.com/samilenl/inventory-mate.git`
 
    
 After cloning the project, install the necessary dependencies by running:
