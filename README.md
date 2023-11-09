@@ -1,4 +1,4 @@
-# Inevntory Mate
+# Inventory Mate
 
 [Live version of the site can be found here]()
 
