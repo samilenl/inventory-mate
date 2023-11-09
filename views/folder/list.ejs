@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> <%= title %> </title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<div class="container">
+    <body>
+        <%- include('../components/header', {active: "all-items"}) %>
+        <main>
+            <div class="subHdr">
+                <h2> <%= title %> </h2>
+                <%- include('../components/add') %> 
+            </div>
+
+            <div>
+                <span>Folders: <strong> <%= folders.length %> </strong> </span>
+            </div>
+            
+            <div class="card-container">
+                <% folders.forEach((folder) => { %>
+                    <a href="<%= folder.url %>/content">
+                        <div class="folder-card">
+                            <div class="folder-card-image">
+                                <img src= "/images/<%= folder.image %>" alt="">
+                            </div>
+                            <div>
+                                <p class="folder-name">
+                                    <%= folder.name %>
+                                </p>
+                                <p class="folder-des">
+                                    <%= folder.description %>
+                                </p>
+                                <div class="upDl">
+                                    <a href="<%= folder.url %>/update" class="edit-btn folder-links">
+                                        Edit
+                                    </a>
+                                    <button href="" class="delete-btn folder-links">
+                                        Delete
+                                    </button>
+                                </div>
+                            </div>
+                            <dialog class="delete-modal">
+                                <p>Are you sure you want to delete this folder?</p>
+                                <p><strong> <%= folder.name %> </strong></p>
+                                <button class="cancel">Cancel</button>
+                                <form action="<%= folder.url %>/delete" method="post">
+                                    <button type="submit" >Delete</button></a>
+                                </form>
+                            </dialog>
+                        </div>
+                    </a>
+                <% }) %>
+            </div>
+            
+        </main>
+    </body>
+</div>
+</html>
+<script src="/javascripts/dltScript.js"></script>

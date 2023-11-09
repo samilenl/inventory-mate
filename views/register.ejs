@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="/stylesheets/signIn.css">
+</head>
+<body>
+    <div class="my-form">
+        <form action="" method="post">
+            <% if (errors){  %>
+                <% errors.map(error => { %>
+                    <span class="error"><%= error %></span> 
+                <% }) %>
+            <% } %>
+            <label for="">
+                Name:
+                <input type="text" name="name" required>
+            </label>
+            <label for="">
+                Email:
+                <input type="email" name="email" required>
+                <% if (typeof userError !== undefined){  %>
+                    <span class="error"><%= userError %></span> 
+                <% } %>
+            </label>
+            <label for="">
+                Password:
+                <input type="password" name="password" required>
+                <% if (typeof passError !== undefined){  %>
+                    <span class="error"><%= passError %></span> 
+                <% } %>
+            </label>
+            <label for="">
+                Confirm Password:
+                <input type="password" name="confirmPassword" required>
+                <% if (typeof passError !== undefined){  %>
+                    <span class="error"><%= passError %></span> 
+                <% } %>
+            </label>
+            <button type="submit">Submit</button>
+        </form>
+        <p>Already have an account? <a href="/login">Log In</a></p>
+    </div>
+</body>
+</html>

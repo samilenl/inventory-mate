@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> <%= title %> </title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<div class="container">
+    <body>
+        <%- include('../components/header') %>
+        <main>
+            <h2> <%= title %> </h2>
+
+            <form class="item-form" action="" method="post" enctype="multipart/form-data">
+                <!-- <div> -->
+                    <label>
+                        Name:
+                        <input type="text" name="name" value="<%= info ? info.name : "" %>" required>
+                    </label>
+                    <label>
+                        Quantity
+                        <input type="Number" value="<%= info ? info.quantity : 1 %>" name="quantity" required>
+                    </label>
+                    <label>
+                        Description
+                        <textarea name="description" id="" cols="30" rows="10" required> <%= info ? info.description : "" %> </textarea>
+                    </label>
+                    <label>
+                        Tags
+                        <div class="selectedItems">
+                            <% if (info) {%>
+                                <% for (const [index, tag] of info.tags.entries()) { %>
+                                    <% if (info.tags > 1){ %>
+                                        <%= tag.name %>
+                                    <% } else { %>
+                                        <% if (index === 0) { %>
+                                            <%= tag.name %>
+                                        <% } else { %>
+                                            , <%= tag.name %>
+                                        <% } %>
+                                    <% } %>
+                                <% } %>
+                            <% } %>
+                        </div>
+                        <input type="text" class="selecteds" name="tags" id="" hidden>
+                        <select name="" id="tag-select" class="select-box" multiple>
+                            <option value="" hidden class="select-options"></option>
+                            <% for (let tag of tags) { %>
+                                <option class="select-options" value="<%= tag.name %>"><%= tag.name %></option>
+                            <% } %>
+                        </select>
+                    </label>
+
+                    <label>
+                        Folder
+                        <select class="select-box" name="folder" id="" required>
+                            <option value="" hidden></option>
+                            <% for (let folder of folders) { %>
+                                <option class="select-options" value="<%= folder._id %>"   <%= (info) ? (folder._id.toString() === info.folder._id.toString() ? 'selected' : '') : "" %> >  <%= folder.name %></option>
+                            <% } %>
+                        </select>
+                    </label>
+                <!-- </div> -->
+                <div>
+                    <label for="">
+                        Upload Photo
+                        <input type="file" name="image" id="">
+                    </label>
+                </div>
+
+
+
+                <button type="submit" id="submit">Submit</button>
+
+            </form>
+            
+        </main>
+    </body>
+</div>
+</html>
+<script src="/javascripts/customSelectScript.js"></script>

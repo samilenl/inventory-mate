@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> <%= title %> </title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<div class="container">
+    <body>
+        <%- include('../components/header', {active: "tags"}) %>
+        <main>
+            <div class="subHdr">
+                <h2> <%= title %> </h2>
+                <%- include('../components/addT') %>
+            </div>
+            
+            <div class="tags">
+                <div class="tag-container">
+                    <% if (tags.length > 0){ %>
+                        <% tags.forEach((tag) => { %>
+                            <div class="tag-card">
+                                <a href="<%= tag.url %>">
+                                    <p class="tag-name">
+                                        <%= tag.name %>
+                                    </p>
+                                </a>
+                                <a href="<%= tag.url %>/update" class="tag-edit edit-btn folder-links taz tazit"></a>
+                                <button href="" class="delete-btn tag-delete folder-links taz tazete"></button>
+                            </div>
+                            <dialog class="delete-modal">
+                                <p>Are you sure you want to delete the <strong> "<%= tag.name %>" </strong> tag?</p>
+                                <div>
+                                    <button class="cancel">Cancel</button>
+                                    <form action="<%= tag.url %>/delete" method="post">
+                                        <button type="submit" >Delete</button></a>
+                                    </form>
+                                </div>
+                            </dialog>
+                        <% }) %>
+                    <% } else { %>
+                        <p> No Tags </p>
+                    <% } %>
+                </div> 
+
+                <% if ( tag_details && tag_details !== undefined ) { %>
+                    <div class="tag-details">
+                        <div>
+                            <p>Items: <%= tag_details.length %> </p>
+                            <div class="item-card-container">
+                                <% if (tag_details.length > 0){ %>
+                                    <% tag_details.forEach((item) => { %>
+                                        <div class="item-card taggg-card">
+                                            <a href="<%= item.url %>">
+                                                <div class="item-card-image">
+                                                    <img src= "/images/<%= item.image %>" alt="">
+                                                </div>
+                                            </a>
+                                            <div class="cl">
+                                                <div class="item-info">
+                                                    <a href="<%= item.url %>">
+                                                        <p class="item-name">
+                                                            <%= item.name %>
+                                                        </p>
+                                                        <p class="item-quantity">
+                                                            <%= item.quantity %> <%= (item.quantity > 1) ? "units" : "unit" %>
+                                                        </p>
+                                                    </a>
+                                                    <div class="i-other-opt">
+                                                        <div class="show">
+                                                            <img src="/local-images/more_vert.svg" alt="">
+                                                        </div>
+                                                        <div class="other-opt taggg">
+                                                            <div class="ediz">
+                                                                <a href="<%= item.url %>/update">Edit</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>  
+                                                                                 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <% }) %>
+                                <% } else { %>
+                                    <p> <strong> There are no items with this tag </strong> </p>
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+                <% } else { %>
+                    <div class="tag-details">
+                    <p> Choose a Tag </p>
+                    </div>
+                <% } %>
+            </div>
+            
+        </main>
+    </body>
+</div>
+</html>
+<script src="/javascripts/dltScript.js"></script>
+<script src="/javascripts/other_opt.js"></script>

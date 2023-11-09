@@ -1,0 +1,46 @@
+Create an inventory web app
+This is the apps basic functionality
+
+It keeps a record of items
+
+Each item has a
+
+name
+quantity
+description
+image
+date purchased
+tags
+
+The app will have a dashboard, search page, tags page (and eventually a login option)
+
+The items will be sorted by category, which will be like a folder, or a project
+and it will appear on the dashboard
+
+Inside the folder there will be different items displayed there,
+
+The item name, unit and some tags.
+
+There will be some default tags, but you could also create tags that can be used everywhere
+
+An item can have more than one tag
+
+The tags on each will be a list of object ids
+
+So the views will be
+
+dashboard
+search
+tags
+tags create
+tags update
+tags delete
+folder
+folder create
+folder delete
+folder update
+item
+item create
+item delete
+item update
+

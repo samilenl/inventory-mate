@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= user.name %>'s Dashboard</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <div class="container">
+        <%- include('./components/header' , {active: "dashboard"}) %>
+        <main>
+            <div class="subHdr">
+                <!-- <h2>Welcome to your dashboard, <%= user.name %> </h2> -->
+                <h1>Dashboard</h1>
+                <%- include('./components/add') %>
+            </div>
+            <h3>Inventory Summary</h3>
+            <div class="dash-card-cont">
+                <div class="dash-card">
+                    <p> All Items </p>
+                    <div>
+                        <p><strong> <%= items %> </strong></p>
+                        <div class="dash-img-cont item">
+                            <img src="/local-images/description.svg" class="icon" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="dash-card">
+                    <p>All Folders</p>
+                    <div>
+                        <p><strong> <%= folders %> </strong></p>
+                        <div class="dash-img-cont folder">
+                            <img src="/local-images/folder.svg" class="icon" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="dash-card">
+                    <p>Total Quantity</p>
+                    <div>
+                        <p> <strong> <%= totalQuantity %> </strong></p>
+                        <div class="dash-img-cont qty">
+                            <img src="/local-images/inventory.svg" class="icon" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h3>Recent Activity</h3>
+            <div>
+                <% recentItems.forEach(item => { %>
+                    <div class="recent-item-card">
+                        <span> You created 
+                            <strong>
+                                <a href="<%= item.url %>">
+                                    <%= item.name  %>
+                                </a>
+                            </strong> 
+                                in 
+                            <strong>
+                                <a href="<%= item.folder.url %>">
+                                    <%= item.folder.name %>
+                                </a>
+                            </strong>
+                        </span>
+                    </div>
+                <% }) %>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

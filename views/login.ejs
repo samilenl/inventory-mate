@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In</title>
+    <link rel="stylesheet" href="/stylesheets/signIn.css">
+</head>
+<body>
+    <div class="my-form">
+        <form action="" method="post">
+            <label for="">
+                Email:
+                <input type="email" name="email" value="<%= user ? user.email : "" %>">
+            </label>
+            <label for="">
+                Password:
+                <input type="password" name="password" value="<%= user ? user.password : "" %>">
+            </label>
+            <span class="error"><%= passError ? passError : "" %></span>
+            <button type="submit">Log In</button>
+        </form>
+        <p>Don't have an account? <a href="/register">Register</a></p>
+    </div>
+</body>
+</html>

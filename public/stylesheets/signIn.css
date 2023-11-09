@@ -1,0 +1,57 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Century Gothic", 'Trebuchet MS', 'Tahoma', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    height: 100vh;
+    margin: 0px;
+}
+
+.my-form > form {
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
+}
+
+.my-form {
+    border: solid rgb(87, 194, 117) 1px;
+    padding: 40px;
+    min-width: 35vw;
+    border-radius: 20px;
+    margin: 15px;
+    background-image: url("/local-images/logo.svg");
+    background-size: 200px;
+    background-repeat: no-repeat;
+    background-position: center 1px;
+    padding-top: 90px;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+button, input {
+    border: solid rgb(87, 194, 117) 1px;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 17px;
+    padding: 10px 20px;
+}
+
+input:focus {
+    outline: rgb(87, 194, 117) solid 1px;
+}
+
+button {
+    color: white;
+    background-color: rgb(87, 194, 117);
+    font-weight: 800;
+}
+
+.error{
+    font-size: 13px;
+    color: red;
+    font-weight: 500;
+  }

@@ -1,0 +1,25 @@
+<header>
+    <span class="logo-container"><img src="/local-images/logo.svg" alt=""></span>
+    <nav>
+        <div class="header-icon dashboard <%= active === "dashboard" ? "active" : "" %>">    
+            <a href="/dashboard" class="">Dashboard</a>
+        </div>
+        <div class="header-icon all-items <%= active === "all-items" ? "active" : "" %>">
+            <a href="/all-items" class="" >All Items</a>
+        </div>
+        <div class="header-icon tagz <%= active === "tags" ? "active" : "" %>">
+            <a href="/tags" class="">Tags</a>
+        </div>
+        <div class="logout">
+            <a href="/logout" ><strong>Logout</strong></a>
+        </div>
+    </nav>
+    <div class="mobile-nav">
+        <a href="/dashboard" class="header-icon dashboard <%= active === "dashboard" ? "active" : "" %>"></a>
+        <a href="/all-items" class="header-icon all-items <%= active === "all-items" ? "active" : "" %>"></a>
+        <a href="/tags" class="header-icon tagz <%= active === "tags" ? "active" : "" %>"></a>
+        <div class="logout">
+            <a href="/logout" ><strong>Logout</strong></a>
+        </div>
+    </div>
+</header>

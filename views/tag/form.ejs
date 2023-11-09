@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> <%= title %> </title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<div class="container">
+    <body>
+        <%- include('../components/header', {active: "tags"}) %>
+        <main>
+            <h2> <%= title %> </h2>
+
+            <form class="item-form" action="" method="post">
+                <div>
+                    <label for="">
+                        Name
+                        <input type="text" name="tagName" value="<%= info ? info.name : "" %>" required>
+                    </label>
+                </div>
+
+                <button type="submit">Submit</button>
+            </form>
+            
+        </main>
+    </body>
+</div>
+</html>

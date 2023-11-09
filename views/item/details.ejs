@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> <%= title %> </title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <div class="container">
+        <%- include('../components/header', {active: "all-items"})  %>
+        <main>
+            <div class="subHdr">
+                <h2> <%= item.name %> </h2>
+
+            <div class="addDlt">
+                    <div class="ellipsis">
+                        <p><strong>...</strong></p>
+                        <div class="options">
+                            <div class="itz rem opt">
+                                <a href="<%=item.url%>/delete">DELETE</a>
+                            </div>
+                            <div class="add itz off">
+                                <a href=" <%=item.url%>/update ">
+                                    EDIT
+                                </a>
+                            </div>    
+                        </div> 
+                    </div>
+
+                    <div class="add itz on">
+                        <a href=" <%=item.url%>/update ">
+                        EDIT
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="item-info-cont">
+                <div class="item-info-qty">
+                    <div>
+                        <p class="infTop">Quantity</p>
+                        <p class="infTxt"> <%= item.quantity %> <%= item.quantity > 1 ? "units" : "unit" %> </p> 
+                    </div>
+                    <div>
+                        <p class="infTop">ID</p>
+                        <p class="infTxt"><%= item._id %></p>
+                    </div>
+                    <div>
+                        <p class="infTop">Updated At</p>
+                        <p class="infTxt"><%= item.formattedDate %></p>
+                    </div>
+                </div>
+                <div class="item-info-info">
+                    <p class="infTop">Information</p>
+                    <div class="item-info-img">                    
+                        <img src="/images/<%= item.image %>" > 
+                    </div>
+                    <p class="infTop">Tags</p>
+                    <p class="item-tags">
+                        <% item.tags.map(tag =>  { %>
+                            <a href= "<%= tag.url %>" > <%= tag.name %> </a>
+                        <% }) %> 
+                    </p>
+                </div>
+                <div class="item-info-dez">
+                    <p class="infTop">Description</p>
+                    <p class="infTxt infDes"> <%= item.description %> </p>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

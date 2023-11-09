@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> <%= folder.name %> (Inventory Folder) </title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<div class="container">
+    <body>
+        <%- include('../components/header', {active: "all-items"}) %>
+        <main>
+            <div class="subHdr">
+                <h2> <%= folder.name %> </h2>
+                <div class="addDlt">
+                    <div class="ellipsis">
+                        <p><strong>...</strong></p>
+                        <div class="options">
+                            <div class="ediz">
+                                <a href="./update">Edit</a>
+                            </div>
+                            <div class="delez">
+                                <a href="./delete">Delete</a>
+                            </div>
+                            <div class="dez">
+                                <a class="des">Description</a>
+                            </div>
+                            <div class="creaz">
+                                <a href="/add-items">Add Item</a>
+                            </div>
+                        </div>  
+                        <dialog class="des-modal">
+                            <p><strong> Description </strong></p>
+                            <p class="dialog-des"><%= folder.description %> </p>
+                            <button class="close">Close</button>
+                        </dialog>
+                    </div>
+
+                <div class="adi">   
+                    <%- include('../components/addI') %> 
+                </div> 
+                </div>
+            </div>
+
+            <div>
+                <span>Items: <strong> <%= items.length %> </strong> </span>
+            </div>
+
+            <div class="item-card-container">
+                <% items.forEach((item) => { %>
+                    <div class="item-card">
+                        <a href="<%= item.url %>">
+                            <div class="item-card-image">
+                                <img src= "/images/<%= item.image %>" alt="">
+                            </div>
+                        </a>
+                        <div class="cl">
+                            <div class="item-info">
+                                <a href="<%= item.url %>">
+                                    <p class="item-name">
+                                        <%= item.name %>
+                                    </p>
+                                    <p class="item-quantity">
+                                        <%= item.quantity %> <%= (item.quantity > 1) ? "units" : "unit" %>
+                                    </p>
+                                </a>
+                                <div class="i-other-opt">
+                                    <div class="show">
+                                        <img src="/local-images/more_vert.svg" alt="">
+                                    </div>
+                                    <div class="other-opt">
+                                        <div class="ediz">
+                                            <a href="<%= item.url %>/update">Edit</a>
+                                        </div>
+                                        <div class="delez">
+                                            <button href="" class="delete-btn">Delete</button>
+                                        </div>
+                                    </div>
+                                </div>                               
+                            </div>
+
+                            <p class="item-tags">
+                                <% item.tags.forEach((tag) => { %>
+                                    <a href= "<%= tag.url %>" > <%= tag.name %> </a>
+                                <% }) %>
+                            </p>
+                            
+                            <dialog class="delete-modal">
+                                <p>Are you sure you want to delete this item?</p>
+                                <p><strong> <%= item.name %> </strong></p>
+                                <div>
+                                    <button class="cancel">Cancel</button>
+                                    <form action="<%= item.url %>/delete" method="post">
+                                        <button type="submit" >Delete</button></a>
+                                    </form>
+                                </div>
+                            </dialog>
+                        </div>
+                </div>
+                <% }) %>
+            </div>
+
+
+        </main>
+    </body>
+</div>
+</html>
+<script src="/javascripts/dltScript.js"></script>
+<script src="/javascripts/other_opt.js"></script>
