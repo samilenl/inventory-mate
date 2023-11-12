@@ -6,6 +6,12 @@ var logger = require("morgan");
 const mongoose = require("mongoose");
 require('dotenv').config()
 
+
+const compression = require("compression");
+const helmet = require("helmet");
+const RateLimit = require("express-rate-limit");
+
+
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 const mainRouter = require("./routes/main");
@@ -34,14 +40,12 @@ async function main() {
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
-mySecret = "121qwsdecfvgbnhbgtr54plopoiky45xxbnmi8e2qqaxg0-i";
-
 const sessionstore = MongoStore.create({mongoUrl: mongoDB})
 
 // Passport Authentication Middleware
 app.use(
   session({
-    secret: mySecret,
+    secret: process.env.MY_SECRET,
     resave: false,
     saveUninitialized: true,
     store: sessionstore,
@@ -101,6 +105,20 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+
+
+app.use(compression());
+app.use(helmet());
+const limiter = RateLimit({
+  windowMs: 1 * 60 * 1000, // 1 minute
+  max: 30,
+});
+app.use(limiter);
+
+
+
+
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", mainRouter);
