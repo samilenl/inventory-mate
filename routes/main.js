@@ -1,7 +1,7 @@
 const express = require("express")
 const router = express.Router()
 
-const itemController = require("../controllers/itemcontroller")
+const itemController = require("../controllers/itemController")
 const tagController = require("../controllers/tagController")
 const folderController = require("../controllers/folderController")
 const otherController = require("../controllers/otherController")
