@@ -1,6 +1,6 @@
 # Inventory Mate
 
-[Live version of the site can be found here]()
+[Live version of the site can be found here](https://inventory-mate.up.railway.app)
 
 Inventory Mate is a user-friendly platform that helps you easily manage your inventory, assets, materials, tools, and more. It is designed to simplify and modernize every aspect of inventory management, making it more efficient and convenient for you.
 
