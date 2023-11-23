@@ -138,7 +138,7 @@ const item_update_post = [
         folder: req.body.folder,
         image: req.file.id,
         tags: sTagsID,
-        _id: req.body.id,
+        _id: req.params.id,
         userId: req.user._id,
       });
     } else {
