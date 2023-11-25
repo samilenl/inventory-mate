@@ -952,6 +952,9 @@ input[type="file" i] {
   border-radius: 20px;
   min-width: 250px;
   flex: 1;
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 20px 2px;
+  border: 1px solid rgb(218, 221, 227);
 }
 
 .dash-card > div {
@@ -995,4 +998,7 @@ input[type="file" i] {
   /* width: 100%; */
   margin-bottom: 10px;
   border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 20px 2px;
+  border: 1px solid rgb(218, 221, 227);
 }
